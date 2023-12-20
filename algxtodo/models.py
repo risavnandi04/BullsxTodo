@@ -23,7 +23,8 @@ class Task(models.Model):
         super().clean()
 
         # Check if due_date is before timestamp
-        if self.due_date and self.timestamp and self.due_date < self.timestamp:
+        self.timestamp= timezone.now()
+        if self.due_date < self.timestamp:
             print("Parameteres In model file")
             print(self.due_date)
             print(self.timestamp)
