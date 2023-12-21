@@ -39,6 +39,10 @@ Follow these steps to get the project running on your local machine:
 
 5. **Access the application**: Open a web browser and navigate to `localhost:8000` to access the application.
 
+## Coverage Report Summary
+
+!Coverage_report
+
 ## Contributing
 
 Contributions are welcome!
