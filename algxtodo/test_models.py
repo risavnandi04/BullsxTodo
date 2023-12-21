@@ -29,6 +29,7 @@ class TestTaskModel(TestCase):
     def test_str_method(self):
         self.assertEqual(str(self.task), self.task.title)
 
+    # Negative test case
     # def test_long_title(self):
     #     long_title = "a" * 201  # 200 is the max_length
     #     task = Task(title=long_title, description="Test", status="OPEN")
@@ -39,12 +40,14 @@ class TestTaskModel(TestCase):
     def test_default_status(self):
         self.assertEqual(self.task.status, "OPEN")
 
+    # Negative test case
     # def test_invalid_status(self):
     #     self.task.status = "INVALID"
     #     with self.assertRaises(ValueError):
     #         self.task.full_clean()
     #         self.task.save()
 
+    # Negative test case
     # def test_null_title(self):
     #     task = Task(description="Test", status="OPEN")
     #     with self.assertRaises(IntegrityError):
