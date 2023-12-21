@@ -14,10 +14,8 @@ Follow these steps to get the project running on your local machine:
 1. **Clone the repository**: Download all the files from the GitHub repository to your local machine.
 
     ```bash
-    git clone <repository_url>
+    git clone https://github.com/risavnandi04/BullsxTodo.git
     ```
-
-    Replace `<repository_url>` with the URL of this GitHub repository.
 
 2. **Set up a Python environment**: It's recommended to create a virtual environment using `conda` or a similar tool. This isolates the project and its dependencies from other Python projects on your system.
 
