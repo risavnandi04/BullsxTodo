@@ -6,6 +6,7 @@ This is a backend-focused Django project that implements a Todo application. The
 
 - Python 3.10, 3.11, or 3.12 (The project has been tested with Python 3.12 and the hosting server runs it on 3.10)
 - Django 5.0
+- Django Rest Framework 3.14
 
 ## Getting Started
 
