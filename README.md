@@ -41,7 +41,8 @@ Follow these steps to get the project running on your local machine:
 
 ## Coverage Report Summary
 
-!Coverage_report.png
+<img width="551" alt="Coverage_report" src="https://github.com/risavnandi04/BullsxTodo/assets/79854041/0ca30fe0-1fef-4d02-aeca-429da25641ac">
+
 
 ## Contributing
 
