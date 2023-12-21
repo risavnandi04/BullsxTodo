@@ -41,7 +41,7 @@ Follow these steps to get the project running on your local machine:
 
 ## Coverage Report Summary
 
-!Coverage_report
+!Coverage Report
 
 ## Contributing
 
