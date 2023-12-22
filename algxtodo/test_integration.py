@@ -55,7 +55,7 @@ class IntegrationTest(TestCase):
                 if self.task1.due_date
                 else None,
                 "status": "OPEN",
-                "tags": self.task1.tags,
+                "tags": list(self.task1.tags.values_list('name', flat=True)),
                 "timestamp": self.task1.timestamp.strftime(
                     "%Y-%m-%dT%H:%M:%S.%fZ"
                 ),
