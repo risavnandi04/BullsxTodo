@@ -2,8 +2,8 @@ from django.test import TestCase
 # from django.db.utils import DataError, IntegrityError
 from django.core.exceptions import ValidationError
 from django.utils import timezone
-from .models import Task
-
+from .models import Task, Tag
+from django.db.models import Manager
 
 class TestTaskModel(TestCase):
     def setUp(self):
@@ -15,8 +15,10 @@ class TestTaskModel(TestCase):
             + timezone.timedelta(
                 days=1
             ),  # due_date is 1 day after the current date
-            tags="test, django",
         )
+        tag1 = Tag.objects.create(name="test")
+        tag2 = Tag.objects.create(name="django")
+        self.task.tags.set([tag1, tag2])
 
     def test_task_fields(self):
         self.assertIsInstance(self.task.title, str)
@@ -62,7 +64,7 @@ class TestTaskModel(TestCase):
         self.assertIsInstance(self.task.timestamp, timezone.datetime)
 
     def test_tags_field(self):
-        self.assertIsInstance(self.task.tags, str)
+        self.assertIsInstance(self.task.tags, Manager)
 
     def test_due_date_after_timestamp(self):
         # Set the timestamp to the current date and time
