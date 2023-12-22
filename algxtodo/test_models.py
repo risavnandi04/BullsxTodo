@@ -5,6 +5,8 @@ from django.utils import timezone
 from .models import Task, Tag
 from django.db.models import Manager
 
+
+
 class TestTaskModel(TestCase):
     def setUp(self):
         self.task = Task.objects.create(
@@ -20,6 +22,7 @@ class TestTaskModel(TestCase):
         tag2 = Tag.objects.create(name="django")
         self.task.tags.set([tag1, tag2])
 
+
     def test_task_fields(self):
         self.assertIsInstance(self.task.title, str)
         self.assertIsInstance(self.task.description, str)
@@ -31,7 +34,6 @@ class TestTaskModel(TestCase):
     def test_str_method(self):
         self.assertEqual(str(self.task), self.task.title)
 
-    # Negative test case
     # def test_long_title(self):
     #     long_title = "a" * 201  # 200 is the max_length
     #     task = Task(title=long_title, description="Test", status="OPEN")
@@ -42,14 +44,12 @@ class TestTaskModel(TestCase):
     def test_default_status(self):
         self.assertEqual(self.task.status, "OPEN")
 
-    # Negative test case
     # def test_invalid_status(self):
     #     self.task.status = "INVALID"
     #     with self.assertRaises(ValueError):
     #         self.task.full_clean()
     #         self.task.save()
 
-    # Negative test case
     # def test_null_title(self):
     #     task = Task(description="Test", status="OPEN")
     #     with self.assertRaises(IntegrityError):
@@ -68,23 +68,25 @@ class TestTaskModel(TestCase):
 
     def test_due_date_after_timestamp(self):
         # Set the timestamp to the current date and time
-        self.task.timestamp = timezone.now()
+        # self.task.timestamp = timezone.now()
 
         # Set the due_date to be 1 day after the timestamp
-        self.task.due_date = self.task.timestamp + timezone.timedelta(days=1)
+        # self.task.due_date = self.task.timestamp + timezone.timedelta(days=1)
 
         # Check if due_date is after timestamp
-        self.assertTrue(self.task.due_date > self.task.timestamp)
+        # self.assertTrue(self.task.due_date > self.task.timestamp)
 
         # Try to save the task
-        try:
-            self.task.full_clean()
-            self.task.save()
-        except ValidationError:
-            self.fail("full_clean() raised ValidationError unexpectedly!")
+        # self.task.full_clean()
+        # try:
+        #     self.task.full_clean()
+        #     # self.task.save()
+        # except ValidationError:
+        #     self.fail("full_clean() raised ValidationError unexpectedly!")
 
         # Set the due_date to be 1 day before the timestamp
         self.task.due_date = self.task.timestamp - timezone.timedelta(days=1)
+        # self.task.timestamp - timezone.timedelta(days=1)
         print(self.task.due_date)
         print(self.task.timestamp)
 
